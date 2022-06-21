@@ -1,0 +1,38 @@
+base:
+  project: iris-flower-species-project
+  random_state: 42
+  target_col: Species
+
+data_source:
+  s3_source: data_given/iris-flower-species.csv
+
+load_data:
+  raw_dataset_csv: data/raw/iris-flower-species.csv
+
+split_data:
+  train_path: data/processed/train_iris.csv
+  test_path: data/processed/test_iris.csv
+  test_size: 0.2
+
+estimators:
+  RandomForestClassifier:
+    params:
+      n_estimators: 20
+
+model_dir: saved_models
+
+reports:
+  params: reports/params.json
+  scores: reports/scores.json
+
+webapp_model_dir: prediction_service/model/model.joblib
+
+mlflow_config:
+  artifacts_dir: artifacts
+  experiment_name: RandomForest Classification
+  run_name: mlops
+  registered_model_name: RandomForestClassifier
+  remote_server_uri: http://127.0.0.1:5000
+
+
+# mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root ./artifacts --host 127.0.0.1 -p 5000

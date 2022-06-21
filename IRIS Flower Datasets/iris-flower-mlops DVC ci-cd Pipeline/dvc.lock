@@ -1,0 +1,55 @@
+schema: '2.0'
+stages:
+  load_data:
+    cmd: python src/load_data.py --config=params.yaml
+    deps:
+    - path: data_given/iris-flower-species.csv
+      md5: bc2885c3353c19b488a6fba77ddd8cfd
+      size: 2771
+    - path: src/get_data.py
+      md5: e1160ed05042cf1dbe1bf6ce1ae00b1b
+      size: 693
+    - path: src/load_data.py
+      md5: f9ab429aeabb08228760a2523eee54fa
+      size: 588
+    outs:
+    - path: data/raw/iris-flower-species.csv
+      md5: 8f093e421c92c9e87a9b0a774314cebd
+      size: 2913
+  split_data:
+    cmd: python src/split_data.py --config=params.yaml
+    deps:
+    - path: data/raw/iris-flower-species.csv
+      md5: 8f093e421c92c9e87a9b0a774314cebd
+      size: 2913
+    - path: src/split_data.py
+      md5: d36fa46c6f5cf4eab565d40d72122148
+      size: 1106
+    outs:
+    - path: data/processed/test_iris.csv
+      md5: 8881ff9c03b8fe3208e02524733c53f5
+      size: 633
+    - path: data/processed/train_iris.csv
+      md5: 4bedea2ec69466466a39713ceb3b0c4c
+      size: 2343
+  train_and_evaluate:
+    cmd: python src/train_evaluate.py --config=params.yaml
+    deps:
+    - path: data/processed/test_iris.csv
+      md5: 8881ff9c03b8fe3208e02524733c53f5
+      size: 633
+    - path: data/processed/train_iris.csv
+      md5: 4bedea2ec69466466a39713ceb3b0c4c
+      size: 2343
+    - path: src/train_evaluate.py
+      md5: c051cddb3241df5fbedb80f7a2644622
+      size: 3209
+    params:
+      params.yaml:
+        estimators.RandomForestClassifier.params.n_estimators: 20
+  log_production_model:
+    cmd: python src/log_production_model.py --config=params.yaml
+    deps:
+    - path: src/log_production_model.py
+      md5: bc07e9d137b6e751e63d9b6df77f5e7b
+      size: 1827
