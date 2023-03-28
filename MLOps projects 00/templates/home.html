@@ -1,0 +1,289 @@
+<html>
+<body>
+    <div class="login">
+       <h1>HEART ATTACK PREDICTION</h1>
+   
+       <form action="{{ url_for('predict_datapoint')}}" method="post">
+        <!-- <h1>
+            <legend>Student Exam Performance Prediction</legend>
+        </h1> -->
+        <div class="mb-3">
+            <label class="form-label">Age</label>
+            <select class="form-control" name="age" placeholder="Enter you AGE" required>
+                <option class="placeholder" selected disabled value="">Select AGE</option>
+                <option value="30">
+                    30
+                </option>
+                <option value="35">
+                    35
+                </option>
+                <option value="40">
+                    40
+                </option>
+                <option value="45">
+                    45
+                </option>
+                <option value="50">
+                    50
+                </option>
+                <option value="55">
+                    55
+                </option>
+                <option value="60">
+                    60
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Gender</label>
+            <select class="form-control" name="sex" placeholder="Enter you Gender" required>
+                <option class="placeholder" selected disabled value="">Select your Gender</option>
+                <option value="1">
+                    Male
+                </option>
+                <option value="0">
+                    Femail
+                </option>
+            </select>
+        </div>
+        
+        <div class="mb-3">
+            <label class="form-label">Cp</label>
+            <select class="form-control" name="cp"
+                placeholder="Enter you CP" required>
+                <option class="placeholder" selected disabled value="">Select CP</option>
+                <option value="0">
+                    0
+                </option>
+                <option value="1">
+                    1
+                </option>
+                <option value="2">
+                    2
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Trestbps</label>
+            <select class="form-control" name="trestbps" placeholder="Enter you trestbps" required>
+                <option class="placeholder" selected disabled value="">Select trestbps</option>
+                <option value="94">
+                    94
+                </option>
+                <option value="100">
+                    100
+                </option>
+                <option value="94">
+                    94
+                </option>
+                <option value="110">
+                    110
+                </option>
+                <option value="120">
+                    120
+                </option>
+                <option value="150">
+                    150
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Chol</label>
+            <select class="form-control" name="chol" placeholder="Enter you chol"
+                required>
+                <option class="placeholder" selected disabled value="">Select chol</option>
+                <option value="126">
+                    126
+                </option>
+                <option value="130">
+                    130
+                </option>
+                <option value="150">
+                    150
+                </option>
+                <option value="180">
+                    180
+                </option>
+                <option value="210">
+                    210
+                </option>
+                <option value="250">
+                    250
+                </option>
+                <option value="280">
+                    280
+                </option>
+                <option value="300">
+                    300
+                </option>
+                <option value="350">
+                    350
+                </option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Fbs</label>
+            <select class="form-control" name="fbs" placeholder="Enter you fbs" required>
+                <option class="placeholder" selected disabled value="">Select your fbs</option>
+                <option value="1">
+                    1
+                </option>
+                <option value="0">
+                    0
+                </option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Restecg</label>
+            <select class="form-control" name="restecg" placeholder="Enter you restecg" required>
+                <option class="placeholder" selected disabled value="">Select your restecg</option>
+                <option value="0">
+                    0
+                </option>
+                <option value="1">
+                    1
+                </option>
+                <option value="2">
+                    2
+                </option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Thalach</label>
+            <select class="form-control" name="thalach" placeholder="Enter you thalach" required>
+                <option class="placeholder" selected disabled value="">Select thalach</option>
+                <option value="71">
+                    71
+                </option>
+                <option value="100">
+                    100
+                </option>
+                <option value="120">
+                    120
+                </option>
+                <option value="130">
+                    130
+                </option>
+                <option value="150">
+                    150
+                </option>
+                <option value="200">
+                    200
+                </option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Exang</label>
+            <select class="form-control" name="exang" placeholder="Enter you exang" required>
+                <option class="placeholder" selected disabled value="">Select your exang</option>
+                <option value="1">
+                    1
+                </option>
+                <option value="0">
+                    0
+                </option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Oldpeak</label>
+            <select class="form-control" name="oldpeak" placeholder="Enter you oldpeak" required>
+                <option class="placeholder" selected disabled value="">Select oldpeak</option>
+                <option value="0">
+                    0
+                </option>
+                <option value="1">
+                    1
+                </option>
+                <option value="2">
+                    2
+                </option>
+                <option value="3">
+                    3
+                </option>
+                <option value="4">
+                    4
+                </option>
+                <option value="5">
+                    5
+                </option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Slope</label>
+            <select class="form-control" name="slope" placeholder="Enter you slope" required>
+                <option class="placeholder" selected disabled value="">Select your slope</option>
+                <option value="0">
+                    0
+                </option>
+                <option value="1">
+                    1
+                </option>
+                <option value="2">
+                    2
+                </option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Ca</label>
+            <select class="form-control" name="ca" placeholder="Enter you ca" required>
+                <option class="placeholder" selected disabled value="">Select your ca</option>
+                <option value="0">
+                    0
+                </option>
+                <option value="1">
+                    1
+                </option>
+                <option value="2">
+                    2
+                </option>
+                <option value="3">
+                    3
+                </option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Thal</label>
+            <select class="form-control" name="thal" placeholder="Enter you thal" required>
+                <option class="placeholder" selected disabled value="">Select your thal</option>
+                <option value="0">
+                    0
+                </option>
+                <option value="1">
+                    1
+                </option>
+                <option value="2">
+                    2
+                </option>
+                <option value="3">
+                    3
+                </option>
+            </select>
+        </div>
+
+        <!-- <div class="mb-3">
+            <label class="form-label">Writing Score out of 100</label>
+            <input class="form-control" type="number" name="reading_score"
+                placeholder="Enter your Reading score" min='0' max='100' />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Reading Score out of 100</label>
+            <input class="form-control" type="number" name="writing_score"
+                placeholder="Enter your Reading Score" min='0' max='100' />
+        </div> -->
+        <div class="mb-3">
+            <input class="btn btn-primary" type="submit" value="Prediction" required />
+        </div>
+    </form>
+    <h2>
+       THE  prediction is {{results}}
+    </h2>
+   <body>
+</html>
